@@ -1,0 +1,18 @@
+Hi {recepient_name}[]
+
+I would like to apply for any available {role_name}[Fullstack/AI] developer role at {company_name}[your company].
+
+Relevant projects:
+1. Code Wizard (LangChain Documentation Chatbot): https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG
+2. TalkSpark (AI-powered Conversation Starter): https://github.com/RutamBhagat/talk_spark_langgraph
+
+Skills: Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, OpenAI
+
+How I can contribute:
+- Develop and integrate AI solutions using LangChain and LLMs
+- Build scalable fullstack applications with Next.js and FastAPI
+- Implement efficient data management with PostgreSQL and SQLAlchemy
+- Optimize AI model performance and user experience
+
+GitHub: https://github.com/RutamBhagat
+Blog: https://dev.to/rutamstwt

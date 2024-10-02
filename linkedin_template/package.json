@@ -1,0 +1,16 @@
+{
+  "name": "linkedin_template",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/inquirer": "^9.0.7",
+    "clipboardy": "^4.0.0",
+    "inquirer": "^11.1.0"
+  }
+}
