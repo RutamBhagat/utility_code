@@ -3,7 +3,7 @@ import * as fs from "fs";
 import inquirer from "inquirer";
 
 const templatesDir =
-  "/home/rutam/Downloads/Code/utility_code/code_template/templates";
+  "/home/voldemort/Desktop/Code/utility_code/code_template/templates";
 const outputFile = "/tmp/selected_template.txt";
 
 async function selectTemplate() {
