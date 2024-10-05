@@ -3,15 +3,28 @@ import fs from "fs/promises";
 import inquirer from "inquirer";
 import path from "path";
 
-const HARDCODED_DIR = "/home/rutam/Downloads/Threads/cohort";
+const HARDCODED_DIR = "/home/voldemort/Desktop/Code/utility_code/Threads/cohort";
 
-async function readTemplate(): Promise<string> {
-  const templatePath = path.join(HARDCODED_DIR, "template.md");
+async function getTemplateFiles(): Promise<string[]> {
+  const templatesDir = path.join(HARDCODED_DIR, "templates");
+  try {
+    const files = await fs.readdir(templatesDir);
+    const templateFiles = files.filter(file => file.endsWith('.md'));
+    console.log("Available template files:", templateFiles);
+    return templateFiles;
+  } catch (error) {
+    console.error("Error reading templates directory:", error);
+    throw new Error("Failed to read templates directory");
+  }
+}
+
+async function readTemplate(templateFile: string): Promise<string> {
+  const templatePath = path.join(HARDCODED_DIR, "templates", templateFile);
   try {
     return await fs.readFile(templatePath, "utf-8");
   } catch (error) {
-    console.error("Error reading template.md:", error);
-    throw new Error("Failed to read template.md file");
+    console.error(`Error reading ${templateFile}:`, error);
+    throw new Error(`Failed to read ${templateFile} file`);
   }
 }
 
@@ -62,9 +75,23 @@ async function generateOutput(
 
 async function main() {
   try {
-    const template = await readTemplate();
-    const weekFolders = await getWeekFolders();
+    const templateFiles = await getTemplateFiles();
+    if (templateFiles.length === 0) {
+      throw new Error("No template files found");
+    }
 
+    const { templateFile } = await inquirer.prompt([
+      {
+        type: "list",
+        name: "templateFile",
+        message: "Select a template file:",
+        choices: templateFiles,
+      },
+    ]);
+    console.log("Selected template file:", templateFile);
+
+    const template = await readTemplate(templateFile);
+    const weekFolders = await getWeekFolders();
     if (weekFolders.length === 0) {
       throw new Error("No week folders found");
     }
@@ -77,13 +104,11 @@ async function main() {
         choices: weekFolders,
       },
     ]);
-
     console.log("Selected week folder:", weekFolder);
 
     const weekNumber = weekFolder.split("_")[1];
     const placeholders =
       template.match(/{([^}]+)}/g)?.map((p) => p.slice(1, -1)) || [];
-
     const userInputs: Record<string, string> = {};
     for (const placeholder of placeholders) {
       if (placeholder !== "info.md") {

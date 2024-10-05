@@ -239,23 +239,4 @@ This is how blockchain technology ensures secure and transparent transactions wi
 
 ```
 
-```
-👨‍💻 [infer topic from info] 🌐 ⤵️
-[Insert info of what we learned from the class here]
-
-𝗪𝗲𝗲𝗸 1.2: Bitcoin WhitePaper
-In this week, we explored [brief description] with @kirat_tw #100xDevs
-(A thread 🧵)….
-
-𝗞𝗲𝘆 𝗧𝗮𝗸𝗲𝗮𝘄𝗮𝘆𝘀 ✍🏻:
-⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
-・[List of Topics]
-
-🔑 [Takeaway No. Title]
-[Explanation of Takeaway No. in 250-280 characters]
-
-My name is Rutam and I talk about
-Web3, AI and WebDev.
-Let's Connect 🤝
-
-```
+something something
