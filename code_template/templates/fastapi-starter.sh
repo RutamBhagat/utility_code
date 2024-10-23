@@ -6,5 +6,5 @@ python3 -m fastapi_template
 # 🍪 Enjoy your new project 🍪
 cd new_project
 rm -rf .git
-poetry install
+pdm install
 code .

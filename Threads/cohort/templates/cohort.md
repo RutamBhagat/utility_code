@@ -1,24 +1,38 @@
-```
-👨‍💻 [infer topic from info] 🌐 ⤵️
-[Insert info of what we learned from the class here]
+1. Start with an introductory tweet:
 
-𝗪𝗲𝗲𝗸 {No.}: {Week Topic}
-In this week, we explored [brief description] with @kirat_tw #100xDevs
-(A thread 🧵)….
+   ```
+   ✅ [Topic inferred from class content]
 
-𝗞𝗲𝘆 𝗧𝗮𝗸𝗲𝗮𝘄𝗮𝘆𝘀 ✍🏻:
-⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
-・[List of Topics]
+   Week {No.}: {Week Topic} #100xDevs
 
-🔑 [Takeaway No. Title]
-[Explanation of Takeaway No. in 250-280 characters]
+   In this week, I explored [brief description] with @kirat_tw
 
-My name is Rutam and I talk about
-Web3, AI and WebDev.
-Let's Connect 🤝
+   (A thread 🧵)….
+   ```
 
-```
+2. Follow with a "Key Takeaways" tweet:
 
-Important instructions:
+   ```
+   𝗞𝗲𝘆 𝗧𝗮𝗸𝗲𝗮𝘄𝗮𝘆𝘀 ✍🏻:
+   ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+   [insert key takeaways here as unordered list (note this is just a list, the explainations come in subsequent tweets)]
+   ```
 
-- It should sound like i am explaining what i learned from the class to the reader
+3. For each key takeaway explaination afterwards:
+
+   - Use the diagram name as the takeaway title
+   - Explain the takeaway in 250-280 characters
+   - After each takeaway, include a placeholder: [Insert diagram_name here]
+   - Do not create numbered tweets
+   - The output should be in the markdown format
+
+4. Ensure all topics from the diagrams.md file are covered
+
+5. Only use @kirat_tw and #100xDevs tags in the first tweet
+
+6. Conclude with:
+   ```
+   My name is Rutam and I talk about
+   Web3, AI and WebDev.
+   Let's Connect 🤝
+   ```

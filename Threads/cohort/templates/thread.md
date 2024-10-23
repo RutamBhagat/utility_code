@@ -2,7 +2,11 @@
 
 {Video Title}
 
-[Summarize the video content in 2-3 sentences, highlighting the main points discussed]
+[Do not mention that i learnt this from a video, just say i learnt about and topic]
+
+[Summarize the video content, highlighting the main points discussed. Make it sound like you're sharing your personal learning experience.]
+
+["A thread 🧵" this should be at the end of first tweet and should mix in with the main tweet flawlessly ]
 
 Key Takeaways:
 ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
@@ -15,6 +19,7 @@ Key Takeaways:
 [Generate a closing statement that encourages engagement or further learning, in 1-2 sentences]
 
 [Instructions for LLM:]
+
 - Use the video transcript to generate accurate and relevant content
 - Ensure the language sounds conversational and personal, as if explaining to a friend
 - Maintain a consistent tone throughout the thread

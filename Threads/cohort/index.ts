@@ -43,13 +43,18 @@ async function getWeekFolders(): Promise<string[]> {
 
 async function readInfoFile(weekFolder: string): Promise<string> {
   const infoFilePath = path.join(HARDCODED_DIR, "weeks", weekFolder, "info.md");
+  const diagramsFilePath = path.join(HARDCODED_DIR, "weeks", weekFolder, "diagrams.md");
   console.log("Attempting to read info file from:", infoFilePath);
+
+  let infoContent = "";
+  let diagramsContent = "";
+
+  // Read info.md content
   try {
-    const content = await fs.readFile(infoFilePath, "utf-8");
-    if (content.trim() === "") {
+    infoContent = await fs.readFile(infoFilePath, "utf-8");
+    if (infoContent.trim() === "") {
       console.warn("Warning: info.md file is empty");
     }
-    return content;
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       console.error(`info.md file not found at ${infoFilePath}`);
@@ -58,7 +63,28 @@ async function readInfoFile(weekFolder: string): Promise<string> {
     }
     throw new Error(`Failed to read info.md file for ${weekFolder}`);
   }
+
+  // Try to read diagrams.md content
+  try {
+    diagramsContent = await fs.readFile(diagramsFilePath, "utf-8");
+    console.log("Successfully read diagrams.md");
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      console.warn(`diagrams.md file not found at ${diagramsFilePath}`);
+    } else {
+      console.error(`Error reading diagrams.md for ${weekFolder}:`, error);
+      throw new Error(`Failed to read diagrams.md file for ${weekFolder}`);
+    }
+  }
+
+  // Append diagrams.md content if it exists
+  if (diagramsContent.trim() !== "") {
+    infoContent += `\n\n---\n\n### Key Points from Diagrams\n\n${diagramsContent}\n\n---\n\n**Note**: The thread should be based on the key points outlined in the diagrams above.`;
+  }
+
+  return infoContent;
 }
+
 
 async function generateOutput(
   template: string,
@@ -128,8 +154,8 @@ async function main() {
 
     const output = await generateOutput(template, userInputs, infoContent);
 
-    // Write to output.md
-    const outputPath = path.join(HARDCODED_DIR, "output.md");
+    // Write to output.md in the same directory as info.md
+    const outputPath = path.join(HARDCODED_DIR, "weeks", weekFolder, "output.md");
     await fs.writeFile(outputPath, output);
     console.log(`Output written to ${outputPath}`);
 

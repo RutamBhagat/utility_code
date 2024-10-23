@@ -2,6 +2,7 @@ import clipboard from "clipboardy";
 import fs from "fs/promises";
 import inquirer from "inquirer";
 import path from "path";
+import Handlebars from "handlebars";
 
 async function getTemplates(): Promise<string[]> {
   const templatesDir = path.join(__dirname, "templates");
@@ -14,39 +15,50 @@ async function getTemplateContent(templateName: string): Promise<string> {
   return fs.readFile(templatePath, "utf-8");
 }
 
-function extractFields(template: string): string[] {
+function extractFields(
+  template: string
+): { field: string; defaultValue: string }[] {
   const fieldRegex = /{([^{}[\]]+)(?:\[([^\]]+)\])?}/g;
-  const fields: string[] = [];
+  const fields: { field: string; defaultValue: string }[] = [];
   let match;
   while ((match = fieldRegex.exec(template)) !== null) {
-    fields.push(match[1]);
+    fields.push({ field: match[1], defaultValue: match[1] }); // Use field name as default value
   }
-  return [...new Set(fields)]; // Remove duplicates
+  return fields;
 }
 
 async function promptForFields(
-  fields: string[],
+  fields: { field: string; defaultValue: string }[],
   template: string
 ): Promise<Record<string, string>> {
-  const questions = fields.map((field) => ({
+  const questions = fields.map(({ field }) => ({
     type: "input",
     name: field,
     message: `Enter value for ${field}:`,
-    default: template.match(new RegExp(`{${field}\\[([^\\]]+)\\]}`))?.[1] || "",
+    default: "", // Show empty value in the prompt
   }));
 
   // @ts-ignore
-  return inquirer.prompt(questions);
+  const answers = await inquirer.prompt(questions);
+
+  // Handle empty inputs by using the default value from the template
+  const values: Record<string, string> = {};
+  fields.forEach(({ field, defaultValue }) => {
+    values[field] = answers[field] || defaultValue;
+  });
+
+  return values;
 }
 
 function fillTemplate(
   template: string,
   values: Record<string, string>
 ): string {
-  return template.replace(
-    /{([^{}[\]]+)(?:\[[^\]]+\])?}/g,
-    (match, field) => values[field] || ""
-  );
+  let filledTemplate = template;
+  for (const [key, value] of Object.entries(values)) {
+    filledTemplate = filledTemplate.replace(new RegExp(`{${key}}`, "g"), value);
+  }
+  return filledTemplate;
 }
 
 async function main() {
@@ -62,9 +74,16 @@ async function main() {
     ]);
 
     const templateContent = await getTemplateContent(selectedTemplate);
+    console.log("Template Content:", templateContent); // Debugging statement
+
     const fields = extractFields(templateContent);
+    console.log("Extracted Fields:", fields); // Debugging statement
+
     const values = await promptForFields(fields, templateContent);
+    console.log("Provided Values:", values); // Debugging statement
+
     const filledTemplate = fillTemplate(templateContent, values);
+    console.log("Filled Template:", filledTemplate); // Debugging statement
 
     await fs.writeFile(path.join(__dirname, "output.txt"), filledTemplate);
     await clipboard.write(filledTemplate);

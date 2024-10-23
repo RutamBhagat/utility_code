@@ -1,6 +1,6 @@
-Hi {recepient_name}[]
+{Hey}
 
-I would like to apply for any available {role_name}[Fullstack/AI] developer role at {company_name}[your company].
+I would like to apply for any available {Fullstack/AI} developer role at {your company}.
 
 Relevant projects:
 1. Code Wizard (LangChain Documentation Chatbot): https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG
