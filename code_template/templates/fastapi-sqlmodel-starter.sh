@@ -9,7 +9,7 @@ cp .env.example .env
 
 # Initialize PDM and install dependencies
 pdm install
-docker-compose up -d db
-pdm run alembic upgrade head 
+# docker-compose up -d db
+# pdm run alembic upgrade head 
 # Open in VS Code
 code .
