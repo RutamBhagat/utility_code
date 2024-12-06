@@ -1,188 +1,279 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# Powerlevel10k instant prompt configuration. Keep this near the top of ~/.zshrc.
+
+# Initialization code requiring console input (passwords, confirmations) MUST go above.
+
+if [[-r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"]]; then
+source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Configure Powerlevel10k instant prompt
 
-# Path to your oh-my-zsh installation.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# Source Powerlevel10k theme
+
+[[! -f ~/.p10k.zsh]] || source ~/.p10k.zsh # To customize, run `p10k configure`
+
+# Set keyboard layout silently - redirecting all output to /dev/null
+
+{ setxkbmap us colemak; } &>/dev/null
+
+# --- Path and Environment Variables ---
+
+# If you come from bash, you might have to change your $PATH.
+
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
+# Standard environment variables
+
 export ZSH="$HOME/.oh-my-zsh"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export NVM_DIR="$HOME/.nvm"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export XKB_DEFAULT_LAYOUT=colemak # While not directly used here, can be useful for other tools
+export PATH="$PATH:/home/voldemort/.local/bin" # Created by `pipx`
+export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA  # For graphics performance
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/voldemort/.local/share/flatpak/exports/share"
+export BROWSER=google-chrome
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# --- Oh My Zsh Configuration ---
+
+# Set the theme
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# --- Oh My Zsh Plugins ---
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+plugins=(
+git
+aliases
+ubuntu
+systemadmin
+sudo
+history
+vscode
+ansible
+docker
+docker-compose
+you-should-use
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-history-substring-search
+zsh-bat
+)
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+source $ZSH/oh-my-zsh.sh
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-# Enable menu selection
-zstyle ':completion:*' menu select
+# --- Completion Settings ---
 
-# Use arrow keys in completion menu
-zmodload zsh/complist
+zstyle ':completion:\*' menu select # Enable menu selection
+zmodload zsh/complist # Load completion module
+
+# Bind arrow keys for completion menu
+
 bindkey -M menuselect '^[[A' vi-up-line-or-history
 bindkey -M menuselect '^[[B' vi-down-line-or-history
 bindkey -M menuselect '^[[C' vi-forward-char
 bindkey -M menuselect '^[[D' vi-backward-char
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# --- Optional Oh My Zsh Configurations (Uncomment to enable) ---
 
-# Uncomment the following line if pasting URLs and other text is messed up.
+# Case-sensitive completion
+
+# CASE_SENSITIVE="true"
+
+# Hyphen-insensitive completion
+
+# HYPHEN_INSENSITIVE="true"
+
+# Automatic updates
+
+# zstyle ':omz:update' mode disabled # disable
+
+# zstyle ':omz:update' mode auto # automatic
+
+# zstyle ':omz:update' mode reminder # reminder
+
+# zstyle ':omz:update' frequency 13 # update frequency (days)
+
+# --- Other Zsh Options (Uncomment to enable) ---
+
+# Disable magic functions (for pasting issues)
+
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to disable colors in ls.
+# Disable colors in ls
+
 # DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
+# Disable auto-setting terminal title
+
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
+# Enable command auto-correction
+
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# Completion waiting dots
+
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Disable dirty marking for untracked files (speeds up large repos)
+
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
+# Format for history timestamps
+
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# --- NVM ---
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git aliases ubuntu systemadmin sudo history vscode docker docker-compose ansible you-should-use you-should-use zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Load NVM
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # Load NVM bash completion
 
-source $ZSH/oh-my-zsh.sh
+# --- Bun ---
 
-# User configuration
+[ -s "/home/voldemort/.bun/_bun" ] && source "/home/voldemort/.bun/\_bun"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# --- Homebrew ---
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Custom aliases
-alias zshrc='code ~/.zshrc'
-alias ls="${aliases[ls]:-ls} -A"
-alias tree='tree -a -I .git --gitignore'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias code_template='clone_template_project'
-alias linkedin_template='bun run /home/voldemort/Desktop/Code/utility_code/linkedin_template/index.ts'
-alias generate_cohort_thread='bun run /home/voldemort/Desktop/Code/utility_code/Threads/cohort/index.ts'
-
-# NVM configuration
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Bun configuration
-[ -s "/home/voldemort/.bun/_bun" ] && source "/home/voldemort/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Homebrew configuration
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Custom functions
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
-compdef _directories md
+# --- Editor Configuration (VS Code and Cursor switching) ---
 
-clone_template_project() {
-    local templates_dir="/home/voldemort/Desktop/Code/utility_code/code_template/templates"
-    local index_ts="/home/voldemort/Desktop/Code/utility_code/code_template/index.ts"
-    local output_file="/tmp/selected_template.txt"
+code_switch_func() {
+local zshrc="$HOME/.zshrc"
+    local temp_file="/tmp/zshrc.tmp"
+    local state_file="$HOME/.editor_state"
 
-    if [ ! -f "$index_ts" ]; then
-        echo "index.ts not found in the templates directory."
-        return 1
-    fi
+    [[ ! -f "$state_file" ]] && echo "vscode" > "$state_file"
+    local current_state=$(cat "$state_file")
 
-    # Run the TypeScript file using Bun
-    bun run "$index_ts"
+    grep -v "^alias cursor=" "$zshrc" | grep -v "^alias code=" > "$temp_file"
 
-    # Check if the output file exists and read the selected template
-    if [ -f "$output_file" ]; then
-        local selected_template=$(cat "$output_file")
-        rm "$output_file"  # Clean up the temporary file
+    if [[ "$current_state" == "vscode" ]]; then
+        echo "cursor" > "$state_file"
+        echo 'alias code="/mnt/c/Users/Rutam/AppData/Local/Programs/cursor/resources/app/bin/cursor"' >> "$temp_file"
+        echo 'alias cursor="/mnt/c/Users/Rutam/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"' >> "$temp_file"
+        print "Switched to Cursor as default 'code' command"
+
     else
-        echo "No template selected."
-        return 1
+        echo "vscode" > "$state_file"
+        echo 'alias cursor="/mnt/c/Users/Rutam/AppData/Local/Programs/cursor/resources/app/bin/cursor"' >> "$temp_file"
+        echo 'alias code="/mnt/c/Users/Rutam/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"' >> "$temp_file"
+        print "Switched to VS Code as default 'code' command"
     fi
 
-    if [ -z "$selected_template" ]; then
-        echo "No template selected."
-        return 1
-    fi
+    mv "$temp_file" "$zshrc"
+    exec zsh
 
-    local template_path="$templates_dir/$selected_template"
-    if [ -f "$template_path" ]; then
-        # Source the script instead of executing it
-        source "$template_path"
-    else
-        echo "Selected template not found: $selected_template"
-        return 1
-    fi
 }
 
-# Set shell options
-setopt glob_dots     # no special treatment for file names with a leading dot
-setopt auto_menu
+# Set default editors. These will get swapped by code_switch as needed.
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias cursor="/mnt/c/Users/Rutam/AppData/Local/Programs/cursor/resources/app/bin/cursor"
+alias code="/mnt/c/Users/Rutam/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+alias code_switch='code_switch_func'
+
+# --- Aliases ---
+
+alias python='python3.11'
+alias open='explorer.exe .'
+alias ls="${aliases[ls]:-ls} -A" # Use existing ls alias or default to ls -A
+alias tree='tree -a -I ".git" --gitignore'
+alias pbcopy='xclip -selection clipboard' # Copy to clipboard
+alias pbpaste='xclip -selection clipboard -o' # Paste from clipboard
+alias cat='bat --paging=never' # View file contents with bat
+alias catgitignored="function \_catgitignored() { git ls-files \"\$1\" | xargs cat | pbcopy; }; \_catgitignored"
+alias gcm='git commit -m'
+alias gap='git add -p'
+alias gpum='git push -u origin main'
+
+alias code_primary='code /home/voldemort/Desktop/Code/python_projects/langgraph-grojects/langchain_academy/intro_to_langgraph/langchain-academy'
+alias code_secondary='code /home/voldemort/Desktop/Code/open_source/swipe/gmail-pub-sub'
+alias code_zshrc='code ~/.zshrc'
+alias code_fabric_prompts='code /home/voldemort/.config/fabric/patterns'
+alias code_threads='code /home/voldemort/Desktop/Code/utility_code/Threads/cohort'
+alias code_template_code='code /home/voldemort/Desktop/Code/utility_code/code_template/templates'
+alias code_portfolio='code /home/voldemort/Desktop/Code/portfolio/magic-portfolio'
+
+alias template_code='clone_template_project'
+alias template_linkedin='bun run /home/voldemort/Desktop/Code/utility_code/linkedin_template/index.ts'
+alias template_generate_cohort_thread='bun run /home/voldemort/Desktop/Code/utility_code/Threads/cohort/index.ts'
+alias redditscrape='/home/voldemort/Desktop/Code/utility_code/reddit/.venv/bin/python /home/voldemort/Desktop/Code/utility_code/reddit/scrape.py'
+alias firefox='snap run firefox'
+
+# --- Functions ---
+
+# Unalias md if it exists (before function definition)
+
+unalias md 2>/dev/null
+
+# Create and enter directory
+
+md() {
+[[$# == 1]] && mkdir -p -- "$1" && cd -- "$1"
+}
+
+yt() { # Download YouTube transcripts
+if [["$1" == "--transcript"]]; then
+yt-dlp --write-auto-sub --skip-download "$2"
+    else
+        print "Invalid option. Use --transcript <URL> to download transcripts."
+    fi
+}
+update_code_alias() { # Function to update code_primary/code_secondary aliases
+    local dir; dir=$(pwd)
+if [[$1 != "primary" && $1 != "secondary"]]; then
+print "Usage: update*code_alias [primary|secondary]"
+return 1
+fi
+local alias_name="code*$1"
+local new_alias="alias $alias_name='code $dir'"
+
+    if grep -q "^alias $alias_name=" ~/.zshrc; then
+        sed -i "s|^alias $alias_name=.*|$new_alias|" ~/.zshrc
+    else
+        echo "$new_alias" >> ~/.zshrc
+    fi
+
+    if grep -q "^$new_alias" ~/.zshrc; then
+        source ~/.zshrc
+        print "$alias_name updated to open $dir"
+    else
+        print "Error: alias update failed."
+    fi
+
+}
+clone_template_project() {
+local templates_dir="/home/voldemort/Desktop/Code/utility_code/code_template/templates"
+local index_ts="/home/voldemort/Desktop/Code/utility_code/code_template/index.ts"
+local output_file="/tmp/selected_template.txt"
+
+[[! -f "$index_ts"]] && { print "index.ts not found."; return 1; }
+bun run "$index_ts"
+
+if [[-f "$output_file"]]; then
+local selected_template=$(cat "$output_file"); rm "$output_file"
+else
+print "No template selected."; return 1
+fi
+
+[[-z "$selected_template"]] && { print "No template selected."; return 1; }
+
+local template_path="$templates_dir/$selected_template"
+[[-f "$template_path"]] && source "$template_path" || { print "Template not found: $selected_template"; return 1; }
+}
+
+# --- Zsh Options ---
+
+setopt glob_dots # Include dotfiles in globbing
+setopt auto_menu # Automatic menu completion
+
+fpath+=~/.zfunc # Add .zfunc to function path
+autoload -Uz compinit # Load and initialize completion system
+compinit # Initialize completion system
+
+compdef \_directories md # Completion definition for the md function

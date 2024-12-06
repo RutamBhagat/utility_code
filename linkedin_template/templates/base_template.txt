@@ -1,10 +1,13 @@
 {Hey}
+I would like to apply for any available {Fullstack/AI} developer role at {your company}. I'd love to explore how my AI and fullstack experience could add value to your team.
 
-I would like to apply for any available {Fullstack/AI} developer role at {your company}.
+Portfolio: https://rutambhagat.me
 
 Relevant projects:
-1. Code Wizard (LangChain Documentation Chatbot): https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG
-2. TalkSpark (AI-powered Conversation Starter): https://github.com/RutamBhagat/talk_spark_langgraph
+1. AutoExtract: Invoice Manager (Extract Structured Data from Documents) https://github.com/RutamBhagat/swipe-assignment
+2. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
+3. TalkSpark (AI-powered Conversation Starter) https://github.com/RutamBhagat/talk_spark_langgraph
+4. BrochureCraft (AI-website Summarizer) https://github.com/RutamBhagat/website_summarizer
 
 Skills: Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, OpenAI
 
@@ -14,5 +17,9 @@ How I can contribute:
 - Implement efficient data management with PostgreSQL and SQLAlchemy
 - Optimize AI model performance and user experience
 
+If there aren't any current openings that match my profile, I'd appreciate knowing what specific skills or experiences you look for in technical candidates.
+
+Let's connect:
+Cal.com: https://cal.com/rutam-bhagat-rutamstwt-uocefl
 GitHub: https://github.com/RutamBhagat
 Blog: https://dev.to/rutamstwt

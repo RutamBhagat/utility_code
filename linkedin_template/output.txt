@@ -1,20 +1,25 @@
-Hey Gourav  
+Hey Hamza
+I would like to apply for any available Fullstack/AI developer role at ZenML. I'd love to explore how my AI and fullstack experience could add value to your team.
 
-Saw your post about the Fullstack/LLM developer role at collaboration on your freelance project, and I would like to apply! 
-I think my background in fullstack dev and AI could be a great fit.
+Portfolio: https://rutambhagat.me
 
-Here are a couple of projects I’ve worked on recently:  
-1. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
-2. TalkSpark (AI-powered Conversation Starter) https://github.com/RutamBhagat/talk_spark_langgraph
+Relevant projects:
+1. AutoExtract: Invoice Manager (Extract Structured Data from Documents) https://github.com/RutamBhagat/swipe-assignment
+2. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
+3. TalkSpark (AI-powered Conversation Starter) https://github.com/RutamBhagat/talk_spark_langgraph
+4. BrochureCraft (AI-website Summarizer) https://github.com/RutamBhagat/website_summarizer
 
-I’ve been working with Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, and OpenAI. I really like:  
-- Building AI solutions using LangChain and LLMs  
-- Developing scalable fullstack apps with Next.js + FastAPI  
-- Optimizing AI model performance and creating great user experiences  
+Skills: Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, OpenAI
 
-You can also check out my GitHub https://github.com/RutamBhagat and blog https://dev.to/rutamstwt to get a sense of what I’ve been up to.
+How I can contribute:
+- Develop and integrate AI solutions using LangChain and LLMs
+- Build scalable fullstack applications with Next.js and FastAPI
+- Implement efficient data management with PostgreSQL and SQLAlchemy
+- Optimize AI model performance and user experience
 
-Would love to chat more about how I can contribute to the team!  
+If there aren't any current openings that match my profile, I'd appreciate knowing what specific skills or experiences you look for in technical candidates.
 
-Best,  
-Rutam
+Let's connect:
+Cal.com: https://cal.com/rutam-bhagat-rutamstwt-uocefl
+GitHub: https://github.com/RutamBhagat
+Blog: https://dev.to/rutamstwt
