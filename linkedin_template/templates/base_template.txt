@@ -6,18 +6,15 @@ Portfolio: https://rutambhagat.me
 Relevant projects:
 1. AutoExtract: Invoice Manager (Extract Structured Data from Documents) https://github.com/RutamBhagat/swipe-assignment
 2. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
-3. TalkSpark (AI-powered Conversation Starter) https://github.com/RutamBhagat/talk_spark_langgraph
-4. BrochureCraft (AI-website Summarizer) https://github.com/RutamBhagat/website_summarizer
 
-Skills: Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, OpenAI
+I've been working with Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, and OpenAI. 
 
-How I can contribute:
-- Develop and integrate AI solutions using LangChain and LLMs
-- Build scalable fullstack applications with Next.js and FastAPI
-- Implement efficient data management with PostgreSQL and SQLAlchemy
-- Optimize AI model performance and user experience
+I really like:  
+- Building AI solutions using LangChain and LLMs  
+- Developing scalable fullstack apps with Next.js + FastAPI  
+- Optimizing AI model performance and creating great user experiences  
 
-If there aren't any current openings that match my profile, I'd appreciate knowing what specific skills or experiences you look for in technical candidates.
+If you're looking for different skills or experience, I'd love to know what you typically look for in candidates - always eager to learn and grow!
 
 Let's connect:
 Cal.com: https://cal.com/rutam-bhagat-rutamstwt-uocefl
