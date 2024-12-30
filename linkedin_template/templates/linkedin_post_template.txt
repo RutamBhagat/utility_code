@@ -4,11 +4,16 @@ I think my background in fullstack dev and AI could be a great fit.
 
 Portfolio: https://rutambhagat.me
 
+Open source contributions:
+Firecrawl(YC S22): https://github.com/mendableai/firecrawl/pulls?q=is:pr+is:closed+author:RutamBhagat
+I have been contributing to an open source project Firecrawl which is a y-combinator backed company from s22 batch. 
+This project helps AI apps to get clean data from any website. It features advanced scraping, crawling, and data extraction capability.
+
 Relevant projects:
 1. AutoExtract: Invoice Manager (Extract Structured Data from Documents) https://github.com/RutamBhagat/swipe-assignment
 2. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
 
-I've been working with Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, and OpenAI. 
+I've been working with Python, TypeScript, LangChain, LangGraph, Next.js, FastAPI
 
 I really like:  
 - Building AI solutions using LangChain and LLMs  

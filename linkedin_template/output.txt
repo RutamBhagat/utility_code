@@ -1,24 +1,21 @@
-Hey Jakub  
-Saw your post about the AI developer role at e-commerce platform, and I would like to apply! 
+Hey Albert  
+Saw your post about the Frontend developer role at VectorShift, and I would like to apply! 
 I think my background in fullstack dev and AI could be a great fit.
 
 Portfolio: https://rutambhagat.me
 
-Here are a couple of projects I've worked on recently:
+Relevant projects:
 1. AutoExtract: Invoice Manager (Extract Structured Data from Documents) https://github.com/RutamBhagat/swipe-assignment
 2. Code Wizard (LangChain Documentation Chatbot) https://github.com/RutamBhagat/Code-Wizard-LangGraph-C_RAG  
-3. TalkSpark (AI-powered Conversation Starter) https://github.com/RutamBhagat/talk_spark_langgraph
-4. BrochureCraft (AI-website Summarizer) https://github.com/RutamBhagat/website_summarizer
 
-I've been working with Python, TypeScript, LangChain, LangGraph, LCEL, Next.js, React, FastAPI, and OpenAI. I really like:  
+I've been working with Python, TypeScript, LangChain, LangGraph, Next.js, FastAPI
+
+I really like:  
 - Building AI solutions using LangChain and LLMs  
 - Developing scalable fullstack apps with Next.js + FastAPI  
 - Optimizing AI model performance and creating great user experiences  
 
 If you're looking for different skills or experience, I'd love to know what you typically look for in candidates - always eager to learn and grow!
-
-You can check out my GitHub https://github.com/RutamBhagat and blog https://dev.to/rutamstwt to get a sense of what I've been up to.
-Would love to chat more about how I can contribute to the team!  
 
 Let's connect:
 Cal.com: https://cal.com/rutam-bhagat-rutamstwt-uocefl
